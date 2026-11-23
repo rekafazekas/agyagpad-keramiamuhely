@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Válassz szombat délelőtti vagy hétköznap esti korongozást Fehér Dóra szentendrei műhelyében. A programok időpontja, időtartama és teljes díja egy helyen.">
+<title>A műhely órarendje · Agyagpad Kerámiaműhely</title>
+<link rel="icon" href="agyagpad-arculat/ikonok/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="agyagpad-arculat/ikonok/apple-touch-icon.png">
+<style>
+:root{--paper:#e8dfd3;--slip:#c6b9ad;--oxide:#87574c;--ink:#382e2a;--rule:rgba(56,46,42,.34);--body:"Trebuchet MS",Arial,sans-serif;--serif:Georgia,"Times New Roman",serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 var(--body)}
+a{color:inherit;text-underline-offset:4px}
+a:focus-visible,summary:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.wrap{width:min(1160px,90%);margin-inline:auto}
+h1,h2,h3,p,figure,dl,dd{margin:0}
+h1,h2,h3{font-family:var(--serif);font-weight:400}
+h1{font-size:clamp(36px,4.65vw,60px);line-height:1.12;letter-spacing:-.045em}
+h1 em{font-weight:400;color:var(--oxide)}
+h2{font-size:clamp(28px,3.25vw,40px);line-height:1.18;letter-spacing:-.035em}
+.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:18px;background:var(--oxide);color:var(--paper);padding:13px 21px;font:bold 16px/1.3 var(--body);text-decoration:none;border-radius:3px;transition:background .2s}
+.btn:hover{background:var(--ink)}
+.arrow{display:inline-block;transition:transform .25s ease-out}
+a:hover .arrow{transform:translateX(4px)}
+header{border-bottom:1px solid var(--rule)}
+.bar{display:flex;align-items:center;gap:28px;min-height:85px;position:relative}
+.brand{margin-right:auto;display:flex;align-items:center}
+.brand img{width:245px;display:block;height:auto}
+nav{display:flex;align-items:center;gap:clamp(15px,2.2vw,32px);font-size:16px;font-weight:bold}
+nav a{text-decoration:none}
+nav a:hover{text-decoration:underline}
+.mobile{display:none}
+.hero{display:grid;grid-template-columns:1.42fr 1fr;gap:7%;align-items:center;padding-block:clamp(42px,5.5vw,78px)}
+.hero p{max-width:49ch;margin:18px 0 24px}
+.photo{position:relative}
+.photo>img{display:block;width:100%;aspect-ratio:1.6;object-fit:cover;position:relative}
+.photo:before{content:"";position:absolute;inset:9px -9px -9px 9px;border:1px solid var(--oxide)}
+.schedule{background:var(--slip);padding:44px 0 42px}
+.schedule h2{margin-bottom:24px}
+.grid{display:grid;grid-template-columns:2.25fr 1.15fr .95fr 1fr 30px;align-items:center;gap:16px}
+.labels,.small{font:700 13px/1.4 var(--body);letter-spacing:.065em;text-transform:uppercase}
+.labels{padding:0 8px 12px;border-bottom:2px solid var(--ink)}
+.row{border-bottom:1px solid var(--rule);padding:17px 8px;text-decoration:none;transition:background .2s}
+.row:hover{background:rgba(232,223,211,.40)}
+.row strong{display:block;font:normal clamp(22px,1.95vw,28px)/1.2 var(--serif);letter-spacing:-.02em}
+.row small{display:block;font-size:15px}
+.row b{font-size:18px;white-space:nowrap}
+.row b small{display:inline;font-weight:400}
+.round{display:inline-grid;place-items:center;width:29px;height:29px;border:1px solid currentColor;border-radius:50%}
+.company{padding-block:26px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.company h2{font-size:26px}
+.company p{margin-top:4px}
+.textlink{font-size:16px;font-weight:bold}
+.next{background:var(--ink);color:var(--paper)}
+.next .wrap{display:grid;grid-template-columns:.72fr 1.4fr auto;gap:6%;align-items:center;padding-block:46px}
+.date{border-right:1px solid var(--slip);line-height:1.1}
+.date time{display:block;font:normal clamp(50px,5.2vw,76px)/1.1 var(--serif);letter-spacing:-.06em}
+.next h2{margin:5px 0 8px}
+.next .btn:hover{background:var(--paper);color:var(--ink)}
+.visit{padding-block:64px;display:grid;grid-template-columns:1fr 1.15fr;gap:7%;align-items:center}
+.visit figure{display:grid;grid-template-columns:4fr 1fr;gap:6px}
+.visit img{display:block;width:100%;height:260px;object-fit:cover}
+.visit p{margin:14px 0}
+.visit .textlink{display:inline-block;margin:5px 16px 0 0}
+footer{border-top:1px solid var(--rule)}
+.foot{display:flex;gap:20px;justify-content:space-between;align-items:center;padding:25px 0}
+.foot img{width:245px;max-width:100%;height:auto}
+.skip{position:absolute;top:-100px;background:var(--paper);padding:10px;z-index:5}
+.skip:focus{top:0}
+@media(prefers-reduced-motion:no-preference){.hero h1,.hero p,.hero .btn{animation:entry .48s both}.hero p{animation-delay:.08s}.hero .btn{animation-delay:.14s}@keyframes entry{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}}
+@media(max-width:880px){.bar{gap:15px;min-height:77px}.bar>nav{display:none}.mobile{display:block}.mobile summary{padding:10px 3px;cursor:pointer;font-weight:700}.mobile nav{position:absolute;z-index:4;left:0;right:0;top:100%;background:var(--paper);padding:18px;align-items:flex-start;flex-direction:column;border:1px solid var(--rule)}.next .wrap{grid-template-columns:.7fr 1.4fr;gap:18px 5%}.next .btn{grid-column:2;justify-self:start}.grid{grid-template-columns:1.7fr 1fr .9fr 1fr 28px;gap:10px}}
+@media(max-width:640px){.wrap{width:89%}.bar{gap:12px;min-height:78px}.brand img{width:150px}.bar .btn{padding:10px 12px}.hero{grid-template-columns:1fr;gap:26px;padding-block:32px 38px}.hero p{margin:15px 0 20px}.photo{width:calc(100% - 9px)}.photo>img{aspect-ratio:2.1}.schedule{padding-block:30px}.schedule h2{margin-bottom:18px}.labels{display:none}.row{grid-template-columns:1fr 1fr 31px;gap:8px;padding:15px 0}.row:nth-of-type(1){border-top:2px solid var(--ink)}.row strong{font-size:24px}.row>span:first-child{grid-column:1/3}.row>span:nth-child(2){grid-column:1;grid-row:2}.row>span:nth-child(3){grid-column:2;grid-row:2}.row>b{grid-column:2;grid-row:3}.row>.round{grid-column:3;grid-row:1}.row>span:nth-child(3):before{content:"Időtartam";display:block;font-size:13px;font-weight:bold}.company,.foot{align-items:flex-start;flex-direction:column;gap:10px}.next .wrap{grid-template-columns:1fr;padding-block:28px;gap:16px}.date{border-right:0;border-bottom:1px solid var(--rule);padding-bottom:10px}.date time{display:inline-block;margin-left:12px}.next .btn{grid-column:1}.visit{grid-template-columns:1fr;gap:24px;padding-block:38px}.visit img{height:200px}}
+@media(max-width:380px){.bar{flex-wrap:wrap;gap:4px 10px;padding-block:12px}.bar .btn{font-size:14px;padding:9px}.bar summary{font-size:15px}.bar .brand img{width:150px}.bar .brand{margin-right:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#tartalom">Ugrás a tartalomra</a>
+<header><div class="wrap bar">
+<a class="brand" href="koncepcio-3-a-muhely-orarendje.html" aria-label="Agyagpad Kerámiaműhely, főoldal"><picture><source media="(max-width:640px)" srcset="agyagpad-arculat/logok/ketsoros-szines.svg"><img src="agyagpad-arculat/logok/egysoros-szines.svg" alt="Agyagpad Kerámiaműhely"></picture></a>
+<nav aria-label="Főmenü"><a href="tanfolyamok.html">Tanfolyamok</a><a href="muhely-es-alkoto.html">Műhely és alkotó</a><a href="kapcsolat.html">Kapcsolat</a></nav>
+<details class="mobile"><summary>Menü</summary><nav aria-label="Mobil főmenü"><a href="tanfolyamok.html">Tanfolyamok</a><a href="muhely-es-alkoto.html">Műhely és alkotó</a><a href="kapcsolat.html">Kapcsolat</a></nav></details>
+<a class="btn" href="kapcsolat.html#urlap">Jelentkezés</a>
+</div></header>
+<main id="tartalom">
+<section class="wrap hero"><div><h1>Korongozás kezdőknek<br><em>Szentendrén</em></h1><p>Fehér Dóra vagyok, keramikus. Gyere, ülj le mellém a koronghoz! Legfeljebb hatan leszünk, így meg tudom mutatni, hogyan nyisd tálkává az első marék agyagot.</p><a class="btn" href="tanfolyamok.html">Megnézem a tanfolyamokat <span class="arrow" aria-hidden="true">→</span></a></div><figure class="photo"><img src="images/korong.jpg" alt="Két kéz alakítja az agyagedény peremét a korongon"></figure></section>
+<section class="schedule"><div class="wrap"><h2>A műhely órarendje</h2>
+<div class="labels grid" aria-hidden="true"><span>Program</span><span>Idősáv</span><span>Időtartam</span><span>Teljes díj</span></div>
+<a class="grid row" href="tanfolyamok.html#kostolo"><span><strong>Korongozó kóstoló</strong><small>Az első saját tálkád</small></span><span>Szombat<small>10:00–13:00</small></span><span>1 × 3 óra</span><b>18 000 Ft<small>/fő</small></b><span class="round arrow" aria-hidden="true">↗</span></a>
+<a class="grid row" href="tanfolyamok.html#harom-alkalom"><span><strong>3 alkalmas tanfolyam</strong><small>Tálkától a pohárformáig</small></span><span>Kedd<small>18:00–20:30</small></span><span>3 × 2,5 óra</span><b>45 000 Ft<small>/fő</small></b><span class="round arrow" aria-hidden="true">↗</span></a>
+<a class="grid row" href="tanfolyamok.html#negy-hetes-kurzus"><span><strong>4 hetes kezdő kurzus</strong><small>Egy saját forma megtervezése</small></span><span>Csütörtök<small>18:00–20:30</small></span><span>4 × 2,5 óra</span><b>58 000 Ft<small>/fő</small></b><span class="round arrow" aria-hidden="true">↗</span></a>
+</div></section>
+<section class="wrap company"><div><h2>Csapatépítőt szervezel?</h2><p>Három óra közös korongozás, legfeljebb hat fővel. A kezdést és a csoportdíjat egyeztetjük.</p></div><a class="textlink" href="tanfolyamok.html#csapatepito">Megnézem a céges csapatépítőt&nbsp;↗</a></section>
+<section class="next"><div class="wrap"><div class="date"><span class="small">2026. november</span><time datetime="2026-11-28">28.</time></div><div><span class="small">Következő alkalom</span><h2>Korongozó kóstoló</h2><p>Szombat, 10:00–13:00 · 18&nbsp;000&nbsp;Ft/fő</p></div><a class="btn" href="kapcsolat.html?program=kostolo&amp;idopont=2026-11-28#urlap">Jelentkezem erre az alkalomra <span class="arrow" aria-hidden="true">→</span></a></div></section>
+<section class="wrap visit"><figure><img src="images/bogre.jpg" alt="Kézbe vett kerámiabögre" loading="lazy"><img src="agyagpad-arculat/feluletek/barnas-maz.jpg" alt="" loading="lazy"></figure><div><h2>Látogass el a műhelybe!</h2><p>Vedd kézbe nyugodtan a bögréket! Van, amelyiket a fülénél jó megfogni, és van, amelyik úgy esik jól, ha két tenyérrel körbeöleled.</p><p><b>2000 Szentendre, Bogdányi út 32.</b><br>Csütörtöktől vasárnapig, 10:00–18:00</p><a class="textlink" href="muhely-es-alkoto.html">Körülnézek a műhelyben&nbsp;↗</a><a class="textlink" href="kapcsolat.html#megkozelites">Megnézem, hogyan jutok oda&nbsp;↗</a></div></section>
+</main><footer><div class="wrap foot"><img src="agyagpad-arculat/logok/egysoros-szines.svg" alt="Agyagpad Kerámiaműhely"><a class="textlink" href="index.html">Vissza a koncepciókhoz</a></div></footer>
+</body></html>

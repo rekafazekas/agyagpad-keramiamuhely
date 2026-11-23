@@ -1,0 +1,104 @@
+{
+  "directions": [
+    {
+      "id": 1,
+      "slug": "a-korong-mellett",
+      "name": "A korong mellett",
+      "description": "Dóra meghívása mellett nagy kép mutatja a tálperemet formáló kezeket. A három program egymás melletti ajánlót kap.",
+      "rationale": "A kezdő a kéztartást és az első saját tálkáját is elképzelheti.",
+      "palette": {
+        "primary": "#87574C",
+        "secondary": "#C6B9AD",
+        "accent": "#87574C",
+        "bg": "#E8DFD3",
+        "surface": "#C6B9AD",
+        "text": "#382E2A",
+        "muted": "#382E2A"
+      },
+      "fonts": {
+        "heading": {
+          "family": "Georgia",
+          "fallback": "'Times New Roman', serif"
+        },
+        "body": {
+          "family": "Trebuchet MS",
+          "fallback": "Arial, sans-serif"
+        },
+        "google_fonts_url": null
+      },
+      "contrast_axes": {
+        "density": "tágas",
+        "hero": "osztott nyitókép",
+        "rhythm": "három oszlop",
+        "photography": "közeli"
+      }
+    },
+    {
+      "id": 2,
+      "slug": "muhelynaplo",
+      "name": "Műhelynapló",
+      "description": "Széles műhelyfotó nyitja az oldalt. Dóra szavai és a három tanfolyam rövid naplóbejegyzései vezetik az olvasót.",
+      "rationale": "A személyes hang és a műhely részletei segítenek elképzelni az első szombatot.",
+      "palette": {
+        "primary": "#87574C",
+        "secondary": "#C6B9AD",
+        "accent": "#87574C",
+        "bg": "#E8DFD3",
+        "surface": "#C6B9AD",
+        "text": "#382E2A",
+        "muted": "#382E2A"
+      },
+      "fonts": {
+        "heading": {
+          "family": "Georgia",
+          "fallback": "'Times New Roman', serif"
+        },
+        "body": {
+          "family": "Trebuchet MS",
+          "fallback": "Arial, sans-serif"
+        },
+        "google_fonts_url": null
+      },
+      "contrast_axes": {
+        "density": "levegős",
+        "hero": "széles nyitókép",
+        "rhythm": "egymás alatti bejegyzések",
+        "photography": "műhelybelső"
+      }
+    },
+    {
+      "id": 3,
+      "slug": "a-muhely-orarendje",
+      "name": "A műhely órarendje",
+      "description": "Kompakt cím és kisebb korongozásfotó nyit. Az időráfordítás és a teljes díj egymáshoz igazított sorokban hasonlítható össze.",
+      "rationale": "Aki az idejéhez keres foglalkozást, gyorsan eljut a megfelelő programhoz.",
+      "palette": {
+        "primary": "#87574C",
+        "secondary": "#C6B9AD",
+        "accent": "#87574C",
+        "bg": "#E8DFD3",
+        "surface": "#C6B9AD",
+        "text": "#382E2A",
+        "muted": "#382E2A"
+      },
+      "fonts": {
+        "heading": {
+          "family": "Georgia",
+          "fallback": "'Times New Roman', serif"
+        },
+        "body": {
+          "family": "Trebuchet MS",
+          "fallback": "Arial, sans-serif"
+        },
+        "google_fonts_url": null
+      },
+      "contrast_axes": {
+        "density": "tömör",
+        "hero": "tipográfiai nyitás",
+        "rhythm": "órarend",
+        "photography": "részlet"
+      }
+    }
+  ],
+  "total": 3
+}

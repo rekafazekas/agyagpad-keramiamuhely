@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kapcsolat · Agyagpad Kerámiaműhely</title>
+  <link rel="icon" type="image/svg+xml" href="agyagpad-arculat/ikonok/favicon.svg">
+  <link rel="apple-touch-icon" href="agyagpad-arculat/ikonok/apple-touch-icon.png">
+  <link rel="stylesheet" href="aloldalak.css">
+  <script src="kapcsolat.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#tartalom">Ugrás a tartalomhoz</a>
+<header><div class="frame bar">
+  <a class="brand" href="index.html" aria-label="Agyagpad – kezdőoldal-koncepciók"><picture>
+    <source media="(max-width: 55rem)" srcset="agyagpad-arculat/logok/ketsoros-szines.svg">
+    <img src="agyagpad-arculat/logok/egysoros-szines.svg" alt="Agyagpad Kerámiaműhely">
+  </picture></a>
+  <nav aria-label="Főmenü">
+    <a href="tanfolyamok.html">Tanfolyamok</a>
+    <a href="muhely-es-alkoto.html">Műhely és alkotó</a>
+    <a href="kapcsolat.html" aria-current="page">Kapcsolat</a>
+    <a class="button" href="kapcsolat.html#urlap">Jelentkezés</a>
+  </nav>
+</div></header>
+<main id="tartalom">
+<section class="frame section-grid" id="urlap">
+  <div><h1>Jelentkezés és érdeklődés</h1>
+    <p>Ha kinéztél egy tanfolyamot, itt választhatsz időpontot. Akkor is írhatsz, ha a csapatoddal jönnél, utalványt adnál ajándékba vagy kérdeznél egy kerámiáról.</p>
+    <p><a href="tanfolyamok.html#gyakori-kerdesek">Gyakori kérdések a jelentkezésről, az utalványról és az átvételről</a></p>
+  </div>
+  <div>
+    <p id="demo-note"><strong>Bemutatóűrlap.</strong> Kitalált adatokkal próbálhatod ki. A próba csak a böngésződben fut, foglalás és e-mail-küldés nélkül.</p>
+    <noscript><p>A bemutatóűrlap kipróbálásához engedélyezd a JavaScriptet.</p></noscript>
+    <form id="demo-form" hidden aria-describedby="demo-note">
+      <div class="form-group"><label for="topic">Miben segíthetek?</label>
+        <select id="topic" required>
+          <option value="">Válassz témát</option>
+          <option value="kostolo">1 alkalmas korongozó kóstoló</option>
+          <option value="harom-alkalom">3 alkalmas korongozó tanfolyam</option>
+          <option value="negy-hetes-kurzus">4 hetes kezdő kurzus</option>
+          <option value="csapatepito">Céges csapatépítő</option>
+          <option value="utalvany">Tanfolyam-utalvány</option>
+          <option value="keramia">Kerámiák a műhelyboltban</option>
+        </select>
+      </div>
+      <div class="form-group"><label for="contact-name" id="name-label">Neved</label><input id="contact-name" required></div>
+      <div class="form-group"><label for="email">E-mail-címed</label><input id="email" type="email" required></div>
+      <div class="form-group" hidden><label for="course-date">Időpont</label><select id="course-date" disabled required></select></div>
+      <div class="form-group" hidden><label for="team-time">Mikor jönnétek?</label><input id="team-time" placeholder="Egy nap vagy időszak" disabled required></div>
+      <div class="form-group" hidden><label for="group-size" id="size-label">Hányan jöttök?</label><input id="group-size" type="number" min="1" max="6" step="1" value="1" disabled required></div>
+      <div class="form-group" hidden><label for="message">Üzeneted</label><p id="message-help"></p><textarea id="message" rows="4" aria-describedby="message-help" disabled required></textarea></div>
+      <button type="submit" class="button">Kipróbálom a beküldést</button>
+      <p role="status" id="result"></p>
+    </form>
+  </div>
+</section>
+<section id="megkozelites" class="tone"><div class="frame section-grid">
+  <h2>Megközelítés és nyitvatartás</h2>
+  <div><p><strong>2000 Szentendre, Bogdányi út 32.</strong></p>
+    <p>A Bogdányi út felől, a 32-es számnál gyere be az udvarba. Az udvar végén fordulj balra, és keresd az ajtó mellett a kék mázas kerámiatáblát az „Agyagpad” felirattal.</p>
+    <p><strong>Csütörtöktől vasárnapig 10:00–18:00.</strong><br>Korongozni a meghirdetett tanfolyami időpontokban tudsz jönni.</p>
+  </div>
+</div></section>
+</main>
+<footer><div class="foot frame">
+  <img src="agyagpad-arculat/logok/egysoros-vilagos.svg" alt="Agyagpad Kerámiaműhely">
+  <a href="index.html">Vissza a koncepciókhoz</a>
+</div></footer>
+</body>
+</html>
