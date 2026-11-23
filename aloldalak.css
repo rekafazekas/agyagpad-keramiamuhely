@@ -43,7 +43,7 @@
 }
 .courses-hero {
   background: linear-gradient(100deg, rgb(35 27 22 / 58%), rgb(35 27 22 / 74%)),
-    url("https://images.pexels.com/photos/5567003/pexels-photo-5567003.jpeg?auto=compress&w=1800") center / cover, var(--umber);
+    url("images/pexels-photo-5567003.webp") center / cover, var(--umber);
 }
 .course-intro { color: var(--clay); }
 .course-intro p { max-width: 62ch; }
