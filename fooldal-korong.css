@@ -54,7 +54,7 @@ img { display: block; max-width: 100%; }
   text-align: center;
   text-decoration: none;
 }
-.korong-home .btn:hover { background: var(--umber); }
+.korong-home .btn:is(:hover, :active) { background: var(--umber); }
 
 .hero {
   display: grid;
@@ -72,7 +72,7 @@ img { display: block; max-width: 100%; }
   letter-spacing: .08em;
   text-transform: uppercase;
 }
-.hero-photo, .visit-gallery img {
+.hero-photo, .visit-gallery img, .subpage main img.course-photo, .studio-page main figure img, .contact-page .contact-map {
   width: 100%;
   border-radius: var(--image-radius);
   object-fit: cover;
@@ -213,9 +213,6 @@ img { display: block; max-width: 100%; }
 
 @media (width > 800px) {
   .hero { padding-block-start: calc(var(--section-space) / 2); }
-
-  .korong-home > header .btn:hover {
-    transform: none;
-    box-shadow: none;
-  }
 }
+
+.korong-home .bar.has-menu .menu-toggle:is(:hover, :active) { background: var(--umber); color: var(--clay); }

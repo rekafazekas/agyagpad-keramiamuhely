@@ -30,12 +30,16 @@ function updateForm(preferredDate) {
   showField("#course-date", course);
   showField("#team-time", team);
   showField("#group-size", course || team);
-  showField("#message", voucher || topic.value === "keramia");
+  const groupSize = form.querySelector("#group-size");
+  if (team) groupSize.removeAttribute("max");
+  else groupSize.max = "6";
+  const message = form.querySelector("#message");
+  message.required = voucher || topic.value === "keramia";
   document.querySelector("#name-label").textContent = team ? "Kapcsolattartó neve" : "Neved";
   document.querySelector("#size-label").textContent = team ? "Hány fővel terveztek?" : "Hányan jöttök?";
-  document.querySelector("#message-help").textContent = voucher
+  message.placeholder = voucher
     ? "Melyik tanfolyamot adnád ajándékba, és milyen név kerüljön az utalványra?"
-    : "Milyen darabot keresel, mire használnád?";
+    : topic.value === "keramia" ? "Milyen darabot keresel, mire használnád?" : "Írd meg, ha van kérdésed vagy kérésed!";
   courseDate.replaceChildren();
   if (sessions.length > 1) courseDate.add(new Option("Válassz időpontot", ""));
   for (const [value, label] of sessions) courseDate.add(new Option(label, value));

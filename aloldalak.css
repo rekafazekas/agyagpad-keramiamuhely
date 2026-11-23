@@ -16,8 +16,9 @@
 .subpage li + li { margin-top: .5rem; }
 .subpage details { border-bottom: 1px solid var(--ash); padding-block: 1rem; }
 .subpage summary { cursor: pointer; font-weight: 500; }
-#urlap > div:last-child { background: var(--ash); padding: clamp(20px, 4vw, 48px); border-radius: var(--image-radius); }
+#urlap > div:nth-child(2) { background: var(--ash); padding: clamp(15px, 3vw, 22.5px) clamp(20px, 4vw, 30px); border-radius: var(--image-radius); }
 .form-group { margin-block: 1rem; }
+#demo-form > .form-group:first-child { margin-block-start: 0; }
 .form-group label { display: block; margin-bottom: .35rem; }
 .form-group :is(input, select, textarea) { width: 100%; min-width: 0; padding: .75rem; background: var(--clay); color: var(--umber); border: 1px solid var(--oxide); border-radius: 8px; font: inherit; }
 .form-group textarea { resize: vertical; }
@@ -28,23 +29,108 @@
 @media (max-width: 800px) { .section-grid { grid-template-columns: minmax(0, 1fr); } }
 
 .courses .choices h3 a { color: inherit; text-decoration: none; }
-.courses .choices h3 a:hover { color: var(--oxide); }
-.course-intro { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 72px); align-items: center; }
-.course-photo { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--image-radius); }
-.courses .section-grid:has(> .course-photo) { align-items: center; }
-.process-title, .process-row { grid-column: 1 / -1; }
-.process-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 62ch); gap: clamp(20px, 5vw, 72px); }
-.process-row ol { margin: 0; padding-inline-start: 1.6em; }
-.process-tiles { position: relative; container-type: size; }
-.process-tiles img { position: absolute; width: min(calc(50cqh - 3px), calc(50cqw - 3px)); aspect-ratio: 1; border-radius: 8px; }
-.process-tiles img:nth-child(odd) { right: calc(50% + 3px); }
-.process-tiles img:nth-child(even) { left: calc(50% + 3px); }
-.process-tiles img:nth-child(-n+2) { bottom: calc(50% + 3px); }
-.process-tiles img:nth-child(n+3) { top: calc(50% + 3px); }
-#gyakori-kerdesek { max-width: 48rem; grid-template-columns: 1fr; gap: 1.5rem; }
-#gyakori-kerdesek h2 { text-align: center; }
-@media (max-width: 800px) {
-  .course-intro, .process-row { grid-template-columns: 1fr; }
-  .courses .section-grid > .course-photo { order: 1; }
-  .process-tiles { width: min(100%, 22rem); aspect-ratio: 1; justify-self: center; }
+.courses-hero .choices article { position: relative; }
+.courses-hero .choices h3 a::after { content: ""; position: absolute; inset: 0; border-radius: var(--image-radius); }
+.courses-hero .choices h3 a:focus-visible { outline: none; }
+.courses-hero .choices h3 a:focus-visible::after { outline: 2px solid currentColor; outline-offset: 3px; }
+@media (prefers-reduced-motion: no-preference) {
+  .courses-hero .choices article { transition: transform .45s cubic-bezier(.2,.65,.3,1); }
+  .courses-hero .choices article:focus-within { transform: translateY(-3px); }
 }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .courses-hero .choices article:hover { transform: translateY(-3px); }
+}
+.courses-hero {
+  background: linear-gradient(100deg, rgb(35 27 22 / 58%), rgb(35 27 22 / 74%)),
+    url("https://images.pexels.com/photos/5567003/pexels-photo-5567003.jpeg?auto=compress&w=1800") center / cover, var(--umber);
+}
+.course-intro { color: var(--clay); }
+.course-intro p { max-width: 62ch; }
+.course-photo { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--image-radius); }
+.courses .section-grid:has(.course-photo) {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  grid-template-areas: "photo title" "photo copy";
+  align-content: center;
+  row-gap: 1rem;
+}
+@media (min-width: 801px) { .courses :is(#kostolo .section-grid, #negy-hetes-kurzus, .section-grid:has(.process-tiles)) {
+  grid-template-areas: "title photo" "copy photo"; }
+}
+.courses .section-grid > h2 { grid-area: title; align-self: end; }
+.courses .section-grid > :is(.course-photo,.process-tiles,.voucher-photo) { grid-area: photo; align-self: center; }
+.course-copy, .process-tiles + ol { grid-area: copy; }
+.process-tiles + ol { margin: 0; padding-left: 1.6em; }
+.process-tiles { display: grid; width: 100%; aspect-ratio: 1; grid-template: repeat(2,minmax(0,1fr)) / repeat(2,minmax(0,1fr)); gap: 14px; }
+.process-tiles img { height: 100%; aspect-ratio: 1; }
+.voucher-photo { position: relative; container-type: inline-size; }
+.voucher-photo span {
+  position: absolute; top: 38%; left: 58%; transform: translate(-50%,-50%) rotate(62deg);
+  padding: .35em .65em; background: #e5e5e4; color: #262421;
+  font: 500 2.05cqw/1.2 var(--body-font); letter-spacing: .12em; text-transform: uppercase;
+}
+#gyakori-kerdesek { max-width: 48rem; grid-template-columns: 1fr; gap: 1.5rem; }
+#gyakori-kerdesek h2 { text-align: center; grid-area: auto; }
+#gyakori-kerdesek summary { position: relative; list-style: none; padding-right: 2rem; }
+#gyakori-kerdesek summary::-webkit-details-marker { display: none; }
+#gyakori-kerdesek summary::before, #gyakori-kerdesek summary::after {
+  content: ""; position: absolute; top: 50%; right: .3rem; width: .8rem; height: 1px; background: currentColor;
+}
+#gyakori-kerdesek summary::after { transform: rotate(90deg); transition: transform .2s ease; }
+#gyakori-kerdesek details[open] summary::after { transform: rotate(0); }
+@media (prefers-reduced-motion: reduce) { #gyakori-kerdesek summary::after { transition: none; } }
+@media (max-width: 800px) {
+  .courses main .section-grid:has(.course-photo) { grid-template-columns: minmax(0,1fr); grid-template-areas: "title" "photo" "copy"; }
+}
+.studio-intro, .studio-visit { align-items: center; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.subpage :is(.studio-intro, .studio-visit) figure { margin: 0; }
+.subpage .studio-intro figure img { aspect-ratio: 1.5; }
+@media (max-width: 800px) {
+  .studio-intro, .studio-visit { grid-template-columns: minmax(0, 1fr); }
+  .studio-intro > div { display: contents; }
+  .studio-intro h1 { grid-row: 1; }
+  .studio-intro figure { grid-row: 2; }
+  .studio-intro p { margin: 0; }
+}
+
+#urlap .form-group :is(input, select, textarea) { border-color: rgb(135 87 76 / 22%); box-shadow: 0 3px 9px rgb(56 46 42 / 8%); }
+#urlap #topic { padding-block: .5625rem; }
+#urlap select {
+  appearance: none;
+  padding-inline-end: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='m3 6 5 5 5-5' fill='none' stroke='%23382e2a' stroke-width='1.4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right .75rem center;
+}
+.contact-map { width: 100%; height: clamp(18rem, 33vw, 26rem); border: 0; border-radius: var(--image-radius); }
+#megkozelites .section-grid { align-items: center; }
+
+.contact-page #urlap > div:nth-child(2), #gyakori-kerdesek > div {
+  box-shadow: 0 8px 24px rgb(56 46 42 / 9%);
+}
+#gyakori-kerdesek > div {
+  padding: .5rem clamp(18px, 3vw, 32px);
+  border-radius: var(--image-radius);
+  background: color-mix(in srgb, var(--clay) 72%, white);
+}
+#gyakori-kerdesek details:last-child { border-bottom: 0; }
+.contact-page #megkozelites { box-shadow: 0 -8px 24px rgb(56 46 42 / 9%); }
+
+.subpage :is(.course-copy, .studio-visit, details) .arrow-link { color: var(--oxide); }
+.subpage :is(.course-copy, .studio-visit, details) .arrow-link:hover { color: var(--umber); }
+
+.shop-descriptions h3 + p { margin-block: .4rem 0; }
+.shop-descriptions p + h3 { margin-top: 1.6rem; }
+@media (min-width: 801px) {
+  .studio-intro p { margin-bottom: 0; }
+  .studio-intro p + p { margin-top: .75em; }
+}
+@media (max-width: 800px) {
+  .studio-intro { row-gap: clamp(18px, 4.5vw, 66px); }
+}
+.subpage .tone .arrow-link { color: #674037; }
+
+#urlap :is(input, select, textarea):focus { outline: none; caret-color: var(--umber); background-color: color-mix(in srgb, var(--clay) 50%, white); }
+
+.studio-shop > h2 { grid-column: 1 / -1; }
+.studio-shop { row-gap: 1.5rem; }
+.subpage .studio-shop > figure { margin: 0; }

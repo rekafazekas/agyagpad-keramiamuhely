@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="aloldalak.css">
 <script src="kapcsolat.js" defer></script>
 </head>
-<body class="korong-home subpage">
+<body class="korong-home subpage contact-page">
 <a class="skip" href="#tartalom">Ugrás a tartalomhoz</a>
 <header><div class="bar wrap">
 <a class="logo" href="index.html" aria-label="Agyagpad Kerámiaműhely – főoldal"><picture><img src="agyagpad-arculat/logok/ketsoros-szines.svg" alt="Agyagpad Kerámiaműhely"></picture><picture class="logo-light" aria-hidden="true"><img src="agyagpad-arculat/logok/ketsoros-vilagos.svg" alt=""></picture></a>
@@ -23,14 +23,9 @@
 </div></header>
 <main id="tartalom">
 <section class="frame section-grid" id="urlap">
-  <div><h1>Jelentkezés és érdeklődés</h1>
-    <p>Ha kinéztél egy tanfolyamot, itt választhatsz időpontot. Akkor is írhatsz, ha a csapatoddal jönnél, utalványt adnál ajándékba vagy kérdeznél egy kerámiáról.</p>
-    <p><a href="tanfolyamok.html#gyakori-kerdesek">Gyakori kérdések a jelentkezésről, az utalványról és az átvételről</a></p>
-  </div>
-  <div>
-    <p id="demo-note"><strong>Bemutatóűrlap.</strong> Kitalált adatokkal próbálhatod ki. A próba csak a böngésződben fut, foglalás és e-mail-küldés nélkül.</p>
-    <noscript><p>A bemutatóűrlap kipróbálásához engedélyezd a JavaScriptet.</p></noscript>
-    <form id="demo-form" hidden aria-describedby="demo-note">
+  <div class="contact-intro"><h1>Jelentkezés és érdeklődés</h1>
+    <p>Ha kinéztél egy tanfolyamot, itt választhatsz időpontot. Akkor is írhatsz, ha a csapatoddal jönnél, utalványt adnál ajándékba vagy kérdeznél egy kerámiáról.</p></div><div><noscript><p>A bemutatóűrlap kipróbálásához engedélyezd a JavaScriptet.</p></noscript>
+    <form id="demo-form" hidden>
       <div class="form-group"><label for="topic">Miben segíthetek?</label>
         <select id="topic" required>
           <option value="">Válassz témát</option>
@@ -42,23 +37,30 @@
           <option value="keramia">Kerámiák a műhelyboltban</option>
         </select>
       </div>
-      <div class="form-group"><label for="contact-name" id="name-label">Neved</label><input id="contact-name" required></div>
-      <div class="form-group"><label for="email">E-mail-címed</label><input id="email" type="email" required></div>
+      <div class="form-group"><label for="contact-name" id="name-label">Neved</label><input id="contact-name" autocomplete="name" placeholder="Például Kovács Anna" required></div>
+      <div class="form-group"><label for="email">E-mail-címed</label><input id="email" type="email" autocomplete="email" placeholder="anna@example.com" required></div>
       <div class="form-group" hidden><label for="course-date">Időpont</label><select id="course-date" disabled required></select></div>
-      <div class="form-group" hidden><label for="team-time">Mikor jönnétek?</label><input id="team-time" placeholder="Egy nap vagy időszak" disabled required></div>
-      <div class="form-group" hidden><label for="group-size" id="size-label">Hányan jöttök?</label><input id="group-size" type="number" min="1" max="6" step="1" value="1" disabled required></div>
-      <div class="form-group" hidden><label for="message">Üzeneted</label><p id="message-help"></p><textarea id="message" rows="4" aria-describedby="message-help" disabled required></textarea></div>
+      <div class="form-group" hidden><label for="team-time">Mikor jönnétek?</label><input id="team-time" placeholder="Például egy januári péntek délután" disabled required></div>
+      <div class="form-group" hidden><label for="group-size" id="size-label">Hányan jöttök?</label><input id="group-size" type="number" min="1" max="6" step="1" value="1" placeholder="Például 4" disabled required></div>
+      <div class="form-group"><label for="message">Üzeneted</label><textarea id="message" rows="4" placeholder="Írd meg, miben segíthetek!"></textarea></div>
       <button type="submit" class="btn">Kipróbálom a beküldést</button>
       <p role="status" id="result"></p>
-    </form>
-  </div>
-</section>
+    </form></div></section>
+<section class="frame section-grid" id="gyakori-kerdesek"><h2>Gyakori kérdések</h2><div>
+  <details><summary>Mikor lesz biztos a helyem?</summary><p>Az űrlapon válaszd ki a programot, a kezdést és a létszámot. E-mailben megírom, hogy van-e helyetek. A foglalás ezzel a visszaigazolással válik véglegessé.</p></details>
+  <details><summary>Mikor és hogyan fizetek?</summary><p>A teljes program díját az első foglalkozás elején rendezheted, készpénzben a műhelyben. Az utalvány a rajta szereplő tanfolyam díját fedezi.</p></details>
+  <details><summary>Mi történik, ha mégsem tudok eljönni?</summary><p>Válaszolj a visszaigazoló levelemre. A kezdés előtt legalább 24 órával díjmentesen lemondhatod a helyedet vagy kereshetünk másik időpontot. Megkezdett kurzusnál megnézem, van-e lehetőség pótlásra.</p></details>
+  <details id="ajandekutalvany"><summary>Hogyan adhatok korongozást ajándékba?</summary><p>Írd meg, melyik tanfolyamot választottad, és milyen név kerüljön az utalványra. Átutalás után e-mailben küldöm a nyomtatható utalványt.</p><a class="arrow-link" href="kapcsolat.html?tema=utalvany#urlap"><span>Kitöltöm az utalványos űrlapot</span></a></details>
+  <details><summary>Meddig érvényes az utalvány?</summary><p>A kiállítástól számított hat hónapig. Az ajándékozott az utalványon szereplő e-mail-címen választhat a szabad időpontok közül.</p></details>
+  <details id="atvetel"><summary>Mikor és hol vehetem át a kerámiámat?</summary><p>Az utolsó foglalkozástól számított két hét múlva, az értesítésem után jöhetsz érte csütörtöktől vasárnapig, 10 és 18 óra között.</p><a class="arrow-link" href="kapcsolat.html#megkozelites"><span>Így találsz ide</span></a></details>
+</div></section>
 <section id="megkozelites" class="tone"><div class="frame section-grid">
-  <h2>Megközelítés és nyitvatartás</h2>
-  <div><p><strong>2000 Szentendre, Bogdányi út 32.</strong></p>
+  <div><h2>Megközelítés és nyitvatartás</h2>
+  <p><strong>2000 Szentendre, Bogdányi út 32.</strong></p>
     <p>A Bogdányi út felől, a 32-es számnál gyere be az udvarba. Az udvar végén fordulj balra, és keresd az ajtó mellett a kék mázas kerámiatáblát az „Agyagpad” felirattal.</p>
     <p><strong>Csütörtöktől vasárnapig 10:00–18:00.</strong><br>Korongozni a meghirdetett tanfolyami időpontokban tudsz jönni.</p>
-  </div>
+  <p><a class="arrow-link" href="https://www.google.com/maps/search/?api=1&amp;query=2000%20Szentendre%2C%20Bogd%C3%A1nyi%20%C3%BAt%2032.%2C%20Magyarorsz%C3%A1g"><span>Megnyitás a Google Térképen</span></a></p></div>
+<iframe class="contact-map" title="Térkép – Szentendre, Bogdányi út 32." src="https://maps.google.com/maps?q=2000%20Szentendre%2C%20Bogd%C3%A1nyi%20%C3%BAt%2032.%2C%20Magyarorsz%C3%A1g&amp;hl=hu&amp;z=17&amp;output=embed" loading="lazy"></iframe>
 </div></section>
 </main>
 <footer class="site-footer footer-standard" id="lablec">
@@ -79,14 +81,14 @@
       <div class="footer-contact">
         <address class="footer-contact-details">
           <strong>2000 Szentendre, Bogdányi út 32.</strong>
-          <span>+36 30 XXX XXXX (minta)</span>
-          <span>hello@agyagpad.example (minta)</span>
+          <span>+36 30 719 6582</span>
+          <span>fdora.agyagpad@gmail</span>
         </address>
         <p>Csütörtöktől vasárnapig 10:00–18:00</p>
       </div>
     </div>
     <div class="footer-note">
-      <small>© Agyagpad Kerámiaműhely · Készítő: a vizsgamunka szerzője</small>
+      <small>© Agyagpad Kerámiaműhely</small>
       <a href="adatkezeles.html">Adatkezelési tájékoztató</a>
     </div>
   </div>
