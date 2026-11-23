@@ -1,0 +1,131 @@
+.opening {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.25fr);
+  align-items: center;
+  gap: clamp(2rem, 4.3vw, 4.5rem);
+  padding-block: clamp(3rem, 5.5vw, 6rem);
+}
+.small-heading, .meeting-day {
+  margin: 0 0 1rem;
+  font: bold .9375rem/1.4 "Trebuchet MS", Arial, sans-serif;
+  letter-spacing: .035em;
+}
+.invitation .small-heading::before {
+  content: "";
+  display: block;
+  width: 2.6rem;
+  margin-bottom: 1.1rem;
+  border-top: 2px solid var(--oxide);
+}
+.invitation h1 { max-width: 13ch; }
+.invitation h1 em { color: var(--oxide); white-space: nowrap; }
+.invitation > p:not(.small-heading) { max-width: 43ch; margin-block: 1.35rem 1.7rem; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: .85rem 1.4rem; }
+.actions a, .course-shelf a, .team-invitation a { font-size: 1rem; font-weight: bold; }
+.opening-photo { margin: 0; }
+.opening-photo img {
+  height: auto;
+  width: 100%;
+  aspect-ratio: 1.96;
+  object-fit: cover;
+  border-radius: 2px;
+}
+.opening-photo figcaption {
+  margin: .65rem 0 0;
+  font: italic 1rem/1.4 Georgia, serif;
+}
+.program-guide { background: var(--stone); border: 0; }
+.course-shelf {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 clamp(1.5rem, 3.2vw, 3.25rem);
+  margin-top: 2.1rem;
+}
+.course-shelf article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 5;
+  border-top: 2px solid var(--ink);
+  padding-top: 1.15rem;
+}
+.meeting-day { margin-bottom: .45rem; font-weight: normal; }
+.course-shelf h3 { font-size: clamp(1.55rem, 2.2vw, 1.95rem); }
+.course-shelf article > p:not([class]) { max-width: 38ch; margin: .75rem 0 1.35rem; }
+.course-facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  column-gap: .75rem;
+  border-block: 1px solid rgb(56 46 42 / 32%);
+  padding-block: .65rem;
+  margin: 0 0 .8rem;
+  font-variant-numeric: tabular-nums;
+}
+.course-facts span { font-size: 1rem; }
+.course-facts strong { white-space: nowrap; }
+.course-shelf a { justify-self: start; }
+.team-invitation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  border-top: 1px solid var(--ink);
+  margin-top: clamp(2.25rem, 4vw, 3.75rem);
+  padding-top: 1.5rem;
+}
+.team-invitation h3 { font-size: 1.5rem; }
+.team-invitation p { margin: .35rem 0 0; }
+.team-invitation a { flex-shrink: 0; }
+.next-session {
+  display: grid;
+  grid-template-columns: minmax(7rem, .55fr) minmax(0, 1.45fr);
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 5rem);
+  border: 0;
+}
+.calendar {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  border-right: 1px solid var(--stone);
+  padding-block: 1rem;
+  font-size: 1rem;
+}
+.calendar strong { color: var(--oxide); font: 400 clamp(4rem, 8vw, 7rem)/1.05 Georgia, serif; }
+.session-copy .small-heading { margin-bottom: .4rem; }
+.session-facts { margin: .8rem 0 0; font-variant-numeric: tabular-nums; }
+.session-copy > p:not([class]) { max-width: 47ch; margin: .55rem 0 1.25rem; }
+.studio-visit { background: var(--ink); color: var(--clay); border: 0; }
+.visit-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, .9fr);
+  align-items: center;
+  gap: clamp(2rem, 5.2vw, 5.5rem);
+}
+.finished-piece { display: block; width: 100%; height: auto; aspect-ratio: 2.45; object-fit: cover; }
+.surface-pair { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-top: .8rem; }
+.surface-pair figure { margin: 0; }
+.surface-pair img { aspect-ratio: 4; }
+.surface-pair figcaption { font-size: .9375rem; }
+.visit-copy .small-heading { margin-bottom: .5rem; }
+.visit-hours { padding-top: 1rem; border-top: 1px solid rgb(232 223 211 / 35%); }
+.studio-visit :focus-visible { outline-color: var(--clay); }
+body:has(.studio-visit) footer .foot { border-top: 1px solid rgb(232 223 211 / 35%); }
+@media (max-width: 52rem) {
+  .opening { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .course-shelf { gap: 0 1.25rem; }
+}
+@media (max-width: 43rem) {
+  .opening, .visit-layout, .course-shelf { grid-template-columns: minmax(0, 1fr); }
+  .opening { gap: 1.6rem; }
+  .opening-photo img { aspect-ratio: 2.35; }
+  .course-shelf { gap: 1.75rem; margin-top: 1.5rem; }
+  .course-shelf article { display: block; grid-row: auto; }
+  .course-shelf article > p:not([class]) { max-width: 50ch; margin-bottom: 1rem; }
+  .team-invitation { align-items: flex-start; flex-direction: column; gap: .6rem; }
+  .next-session { grid-template-columns: 1fr; gap: 1.35rem; }
+  .calendar { display: flex; justify-content: flex-start; align-items: baseline; flex-wrap: wrap; gap: .35em; border: 0; padding-block: 0 .75rem; border-bottom: 1px solid var(--stone); }
+  .calendar strong { font-size: 1.6rem; }
+  .visit-layout { gap: 1.5rem; }
+}

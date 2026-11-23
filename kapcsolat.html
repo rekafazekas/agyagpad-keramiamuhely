@@ -3,16 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tanfolyami jelentkezés, utalvány, céges korongozás és a szentendrei Agyagpad műhelybolt megközelítése.">
   <title>Kapcsolat · Agyagpad Kerámiaműhely</title>
   <link rel="icon" type="image/svg+xml" href="agyagpad-arculat/ikonok/favicon.svg">
   <link rel="apple-touch-icon" href="agyagpad-arculat/ikonok/apple-touch-icon.png">
   <link rel="stylesheet" href="aloldalak.css">
   <script src="kapcsolat.js" defer></script>
+<link rel="stylesheet" href="lablec.css">
+<link rel="stylesheet" href="megjelenes.css">
+<script src="megjelenes.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#tartalom">Ugrás a tartalomhoz</a>
 <header><div class="frame bar">
-  <a class="brand" href="index.html" aria-label="Agyagpad – kezdőoldal-koncepciók"><picture>
+  <a class="brand" href="index.html" aria-label="Agyagpad – főoldal"><picture>
     <source media="(max-width: 55rem)" srcset="agyagpad-arculat/logok/ketsoros-szines.svg">
     <img src="agyagpad-arculat/logok/egysoros-szines.svg" alt="Agyagpad Kerámiaműhely">
   </picture></a>
@@ -20,8 +24,8 @@
     <a href="tanfolyamok.html">Tanfolyamok</a>
     <a href="muhely-es-alkoto.html">Műhely és alkotó</a>
     <a href="kapcsolat.html" aria-current="page">Kapcsolat</a>
-    <a class="button" href="kapcsolat.html#urlap">Jelentkezés</a>
   </nav>
+  <a class="button" href="kapcsolat.html#urlap">Jelentkezés</a>
 </div></header>
 <main id="tartalom">
 <section class="frame section-grid" id="urlap">
@@ -63,9 +67,35 @@
   </div>
 </div></section>
 </main>
-<footer><div class="foot frame">
-  <img src="agyagpad-arculat/logok/egysoros-vilagos.svg" alt="Agyagpad Kerámiaműhely">
-  <a href="index.html">Vissza a koncepciókhoz</a>
-</div></footer>
+<footer class="site-footer footer-standard" id="lablec">
+  <div class="footer-inner">
+    <div class="footer-columns">
+      <div class="footer-identity">
+        <a class="footer-logo" href="index.html" aria-label="Agyagpad Kerámiaműhely – főoldal">
+          <img src="agyagpad-arculat/logok/ketsoros-vilagos.svg" alt="Agyagpad Kerámiaműhely" loading="lazy">
+        </a>
+        <p>Fehér Dóra keramikus</p>
+      </div>
+      <nav class="footer-nav" aria-label="Láblécmenü">
+        <a href="index.html">Főoldal</a>
+        <a href="tanfolyamok.html">Tanfolyamok</a>
+        <a href="muhely-es-alkoto.html">Műhely és alkotó</a>
+        <a href="kapcsolat.html" aria-current="page">Kapcsolat</a>
+      </nav>
+      <div class="footer-contact">
+        <address class="footer-contact-details">
+          <strong>2000 Szentendre, Bogdányi út 32.</strong>
+          <span>+36 30 XXX XXXX (minta)</span>
+          <span>hello@agyagpad.example (minta)</span>
+        </address>
+        <p>Csütörtöktől vasárnapig 10:00–18:00</p>
+      </div>
+    </div>
+    <div class="footer-note">
+      <small>© Agyagpad Kerámiaműhely · Készítő: a vizsgamunka szerzője</small>
+      <a href="adatkezeles.html">Adatkezelési tájékoztató</a>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
