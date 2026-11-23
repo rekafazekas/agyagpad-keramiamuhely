@@ -16,12 +16,13 @@
 .subpage li + li { margin-top: .5rem; }
 .subpage details { border-bottom: 1px solid var(--ash); padding-block: 1rem; }
 .subpage summary { cursor: pointer; font-weight: 500; }
-#urlap > div:nth-child(2) { background: var(--ash); padding: clamp(15px, 3vw, 22.5px) clamp(20px, 4vw, 30px); border-radius: var(--image-radius); }
+#urlap > div:nth-child(2) { background: var(--ash); padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px); border-radius: var(--image-radius); }
 .form-group { margin-block: 1rem; }
 #demo-form > .form-group:first-child { margin-block-start: 0; }
 .form-group label { display: block; margin-bottom: .35rem; }
 .form-group :is(input, select, textarea) { width: 100%; min-width: 0; padding: .75rem; background: var(--clay); color: var(--umber); border: 1px solid var(--oxide); border-radius: 8px; font: inherit; }
-.form-group textarea { resize: vertical; }
+.form-group input { padding: 6px calc(.75rem - 2px); }
+.form-group textarea { height: calc(4lh + 1.5rem + 2px - 16px); resize: vertical; }
 .subpage button.btn { font-family: inherit; cursor: pointer; }
 #demo-note, #result { border-left: 3px solid var(--oxide); padding-left: 1rem; }
 #result:empty { display: none; }
@@ -93,7 +94,7 @@
 }
 
 #urlap .form-group :is(input, select, textarea) { border-color: rgb(135 87 76 / 22%); box-shadow: 0 3px 9px rgb(56 46 42 / 8%); }
-#urlap #topic { padding-block: .5625rem; }
+#urlap .form-group select { padding-block: 6px; }
 #urlap select {
   appearance: none;
   padding-inline-end: 2.75rem;
@@ -121,6 +122,17 @@
 .shop-descriptions h3 + p { margin-block: .4rem 0; }
 .shop-descriptions p + h3 { margin-top: 1.6rem; }
 @media (min-width: 801px) {
+  .subpage main > section:first-child, .subpage main.legal {
+    padding-block-start: calc(var(--section-space) * .75);
+  }
+  :is(.studio-intro, .studio-shop) > figure { align-self: stretch; position: relative; }
+  .subpage :is(.studio-intro, .studio-shop) > figure img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    object-fit: cover;
+  }
+  .subpage .studio-intro > figure img { object-position: 55% center; }
   .studio-intro p { margin-bottom: 0; }
   .studio-intro p + p { margin-top: .75em; }
 }
