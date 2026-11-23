@@ -56,14 +56,14 @@
 }
 
 .footer-standard .footer-columns {
-  grid-template-columns: minmax(0, .8fr) minmax(0, 1.5fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr) minmax(0, 1fr);
   align-items: start;
   gap: 2.25rem clamp(1.875rem, 4.5vw, 4.5rem);
 }
-.footer-standard .footer-logo img { width: 10rem; }
+.footer-standard .footer-logo img { width: var(--site-logo-width, 135px); }
 .footer-standard a { text-decoration: none; }
 .footer-standard a:hover { text-decoration: underline; }
-.footer-nav { display: flex; flex-wrap: wrap; gap: .55rem 1.25rem; }
+.footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: .55rem 1.25rem; }
 .footer-contact-details { display: grid; gap: .3rem; overflow-wrap: anywhere; }
 .site-footer .footer-contact p { margin-top: .85rem; }
 @media (max-width: 60rem) {
