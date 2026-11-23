@@ -21,10 +21,10 @@ Hosszabb olvasáshoz nyersagyag alapon umbra szöveget használj. A kontrasztar�
 | --- | --- | --- | --- |
 | Oldalcím | Georgia Regular | 36 → 60 px | 1,12 |
 | Szakaszcím | Georgia Regular | 28 → 40 px | 1,18 |
-| Törzsszöveg | Trebuchet MS Regular | 17 → 19 px | 1,55 |
-| Navigáció és gombfelirat | Trebuchet MS Bold | 16 → 18 px | 1,30 |
+| Törzsszöveg | Jost Regular | 17 → 19 px | 1,55 |
+| Navigáció és gombfelirat | Jost Bold | 16 → 18 px | 1,30 |
 
-A kerekded Georgia címsorokat balra zárva, természetes kis- és nagybetűzéssel szedd. A „Korongozás kezdőknek Szentendrén” cím keskeny képernyőn szabadon törhet. A bevezető, az ár, az időtartam és a gombfelirat Trebuchet MS-sel jelenjen meg. A kézírás a műhely nevéhez tartozik.
+A kerekded Georgia címsorokat balra zárva, természetes kis- és nagybetűzéssel szedd. A „Korongozás kezdőknek Szentendrén” cím keskeny képernyőn szabadon törhet. A bevezető, az ár, az időtartam és a gombfelirat Josttal jelenjen meg. A kézírás a műhely nevéhez tartozik.
 
 ## Szólogó és ikonok
 
@@ -32,7 +32,7 @@ Az „Agyagpad Kerámiaműhely” szólogó SVG-ben, görbévé alakított betű
 
 | Hordozó | Elrendezés | Javasolt legkisebb szélesség |
 | --- | --- | --- |
-| Széles webes fejléc | Egysoros | 245 px |
+| Széles webes fejléc | Kétsoros | 135 px |
 | Keskeny fejléc, ajándékutalvány, műhelytábla | Kétsoros | 150 px a képernyőn |
 
 | Háttér vagy felhasználás | Egysoros SVG | Kétsoros SVG |
@@ -76,7 +76,7 @@ Az alapszínek és betűcsaládok közös CSS-változói:
   --vasoxid: #87574c;
   --egetett-umbra: #382e2a;
   --cimsor: Georgia, "Times New Roman", serif;
-  --torzsszoveg: "Trebuchet MS", Arial, sans-serif;
+  --torzsszoveg: "Jost", system-ui, sans-serif;
 }
 ```
 

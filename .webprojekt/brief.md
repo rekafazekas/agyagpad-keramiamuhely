@@ -23,7 +23,7 @@ Dóra egyes szám első személyben, tegezve szól az olvasóhoz. A hangja közv
 | Elem | Irány |
 |---|---|
 | Színek | Nyersagyag `#E8DFD3` a fő háttérhez, agyagszürke `#C6B9AD` a másodlagos felületekhez, égetett umbra `#382E2A` a szöveghez, vasoxid `#87574C` a fő gombokhoz. |
-| Betű és logó | Georgia címsorok, Trebuchet MS törzsszöveg és gombfeliratok. Széles fejlécben egysoros, keskeny fejlécben kétsoros SVG-szólogó. |
+| Betű és logó | Georgia címsorok, Jost törzsszöveg és gombfeliratok. Asztali és mobilnézetben egyaránt kétsoros SVG-szólogó. |
 | Fotó és textúra | Természetes oldalvilágítás, agyagos kéz, fa munkapad, kézbe vett edény. A nyitóképen a két kéz és az edény pereme mobilkivágásban is jól látszódjon. A matt kőagyag és a barna máz részletképei a műhelyhez tartoznak. |
 | Elrendezés | A drótváz egy lehetséges elrendezést mutat. A szöveg az arculati útmutató szerinti egyszínű felületen legyen jól olvasható. Kerülendő a zsúfoltság és a fényes luxusüzletek kirakathatása. |
 
@@ -57,7 +57,7 @@ A szakaszok sorrendje rögzített. A táblázatban szereplő címek, gombfelirat
 | Korongozó kóstoló | 1 × 3 óra | 18 000 Ft/fő. 2026. november 28. vagy december 5., 10–13 óra. |
 | 3 alkalmas tanfolyam | 3 × 2,5 óra | 45 000 Ft/fő. 2027. január 12., 19. és 26., 18.00–20.30. |
 | 4 hetes kezdő kurzus | 4 × 2,5 óra | 58 000 Ft/fő. 2027. január 14., 21., 28. és február 4., 18.00–20.30. |
-| Céges csapatépítő | **3 óra**, legfeljebb 6 fő | **Egyeztetett kezdés és egyedi csoportdíj.** Rövid bemutató után mindenki saját tálkát korongoz. |
+| Céges csapatépítő | **3 óra**, alkalmanként legfeljebb 6 fő | **Egyeztetett kezdés és egyedi csoportdíj.** Két vagy több hatfős csapat külön alkalmakra kedvezményt kap. Rövid bemutató után mindenki saját tálkát korongoz. |
 
 A részvételi díj tartalmazza az agyagot, a mázat és a két égetést. A kész darab az utolsó foglalkozás után két héttel vehető át, Dóra értesítése után. A jelentkezés, a fizetés, a lemondás, az utalvány és az átvétel részletes tudnivalói a Tanfolyamok oldal gyakori kérdései közé kerülnek.
 

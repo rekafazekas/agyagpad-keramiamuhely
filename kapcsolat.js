@@ -36,7 +36,7 @@ function updateForm(preferredDate) {
   const message = form.querySelector("#message");
   message.required = voucher || topic.value === "keramia";
   document.querySelector("#name-label").textContent = team ? "Kapcsolattartó neve" : "Neved";
-  document.querySelector("#size-label").textContent = team ? "Hány fővel terveztek?" : "Hányan jöttök?";
+  document.querySelector("#size-label").textContent = team ? "Összesen hány fővel terveztek?" : "Hányan jöttök?";
   message.placeholder = voucher
     ? "Melyik tanfolyamot adnád ajándékba, és milyen név kerüljön az utalványra?"
     : topic.value === "keramia" ? "Milyen darabot keresel, mire használnád?" : "Írd meg, ha van kérdésed vagy kérésed!";
