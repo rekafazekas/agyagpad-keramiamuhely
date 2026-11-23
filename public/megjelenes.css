@@ -1,0 +1,117 @@
+html { scroll-behavior: smooth; scroll-padding-top: 112px; }
+body { font-size: 18px; line-height: 1.65; }
+body h1, body h2, body h3 { font-weight: 500; line-height: 1.12; }
+body h1 { font-size: clamp(40px, 5.1vw, 64px); letter-spacing: -.035em; }
+body h2 { font-size: clamp(32px, 3.7vw, 44px); letter-spacing: -.025em; }
+body h3 { font-size: 28px; font-weight: 600; }
+body .team h2 { font-size: 32px; }
+body .site-footer h2 { font-size: 24px; }
+.choices .meta, summary { font-size: 16px; font-weight: 500; }
+.form-group label { font-size: 14px; font-weight: 500; }
+.form-group input, .form-group select, .form-group textarea { font-size: 16px; }
+.bar .btn, .bar .button, main .btn, main .button {
+  min-height: 52px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  transition: background-color .3s;
+}
+.section-grid figure img { box-shadow: 0 8px 24px rgb(56 46 42 / 15%); }
+.site-footer { box-shadow: 0 -14px 36px -10px rgb(56 46 42 / 30%); }
+
+body > header {
+  --header-height: 102px;
+  --compact-height: 76px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--clay);
+  transition: background-color .4s, box-shadow .4s, margin-bottom .3s ease;
+}
+body > header.scrolled {
+  background: rgb(232 223 211 / 35%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 10px 26px -7px rgb(56 46 42 / 17%);
+  margin-bottom: calc(var(--header-height) - var(--compact-height));
+}
+body > header .bar {
+  min-height: var(--header-height);
+  padding-block: .5rem;
+  transition: min-height .3s ease;
+}
+body > header.scrolled .bar { min-height: var(--compact-height); }
+.bar nav a:not(.btn) { font-size: 15px; font-weight: 400; }
+.skip:focus { z-index: 21; }
+.menu-toggle { display: none; }
+.hero > div > *, .course-intro > *, .studio-intro > div > *, .contact-intro > *, .legal > h1, #urlap > div:nth-child(2), .courses-hero .choices { animation: arrive .9s both; }
+:is(.hero, .course-intro, .studio-intro, #urlap, .legal) h1 { animation-delay: .1s; }
+.hero p:not(.location), .course-intro p, .studio-intro p, .contact-intro p { animation-delay: .2s; }
+.hero .btn { animation-delay: .3s; }
+.hero-photo, .studio-intro figure img { animation: unveil 1.4s backwards; }
+main > section { transition: opacity .8s, transform 1s; }
+main > section.pending:not(:target):not(:focus-within) { opacity: 0; transform: translateY(22px); }
+@keyframes arrive {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes unveil {
+  from { opacity: 0; clip-path: inset(12% 0 0); }
+  to { opacity: 1; clip-path: inset(0); }
+}
+@media (max-width: 800px) {
+  body > header { --header-height: 86px; --compact-height: 68px; }
+  .bar.has-menu { display: flex; flex-wrap: nowrap; gap: .75rem; }
+  .bar.has-menu > .button { margin-left: auto; }
+  .bar.has-menu .logo { flex: 0 1 auto; }
+  .bar.has-menu .menu-toggle {
+    display: grid;
+    order: 2;
+    flex: 0 0 48px;
+    height: 48px;
+    place-items: center;
+    background: transparent;
+    color: inherit;
+    border: 1px solid #c6b9ad;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .menu-toggle span { font-size: 21px; line-height: 1; }
+  .bar.has-menu nav {
+    position: absolute;
+    inset: 100% 0 auto;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    background: var(--clay);
+    box-shadow: 0 20px 24px rgb(56 46 42 / 8%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity .28s ease, transform .28s ease, visibility 0s linear .28s;
+  }
+  .bar.has-menu nav.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition: opacity .48s ease, transform .48s cubic-bezier(.22,1,.36,1);
+  }
+  .bar.has-menu nav a { padding-block: .45rem; align-self: flex-start; }
+  .bar.has-menu nav.open a { animation: arrive .55s cubic-bezier(.22,1,.36,1) both; }
+  .bar.has-menu nav.open a:nth-child(2) { animation-delay: .04s; }
+  .bar.has-menu nav.open a:nth-child(3) { animation-delay: .08s; }
+  .bar.has-menu nav.open a:nth-child(4) { animation-delay: .12s; }
+}
+@media (max-width: 680px) {
+  body { font-size: 16px; }
+  .bar.has-menu > .button { padding-inline: .65rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  main > section.pending { opacity: 1 !important; transform: none !important; }
+}
