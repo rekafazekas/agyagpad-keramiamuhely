@@ -50,3 +50,22 @@ if (Array.from(topic.options).some(option => option.value === requestedTopic)) t
 updateForm(query.get("idopont"));
 topic.addEventListener("change", () => updateForm());
 form.hidden = false;
+
+const submitButton = form.querySelector('button[type="submit"]');
+window.addEventListener("pageshow", () => { submitButton.disabled = false; });
+
+form.addEventListener("submit", async event => {
+  event.preventDefault();
+  if (submitButton.disabled) return;
+  submitButton.disabled = true;
+  const fields = new URLSearchParams(new FormData(form));
+  fields.set("form-name", form.name);
+  let destination = "/sikertelen-kuldes.html";
+  try {
+    const response = await fetch("/", { method: "POST", body: fields });
+    if (response.ok) destination = form.action;
+  } catch {
+    // A megszakadt kapcsolat esetén is a hibaoldal következik.
+  }
+  location.assign(destination);
+});
