@@ -1,85 +1,61 @@
 (() => {
   const id = "G-5P18TLPN2D";
-  const key = "agyagpad-analytics-v1";
-  const footer = document.querySelector(".footer-note");
-  const settings = document.createElement("button");
-  settings.type = "button";
-  settings.className = "analytics-settings";
-  settings.textContent = "Sütibeállítások";
-  footer.append(settings);
-
-  const panel = document.createElement("dialog");
-  panel.className = "analytics-panel";
-  panel.setAttribute("aria-labelledby", "analytics-heading");
-  panel.innerHTML = `
-    <h2 id="analytics-heading">Statisztikai sütik</h2>
-    <p>Engedélyezed, hogy a Google Analytics sütikkel mérje, mely oldalakat látogatod meg? A döntésedet a láblécben bármikor módosíthatod.</p>
-    <p><a href="adatkezeles.html#statisztika">Adatkezelési tájékoztató</a></p>
-    <p class="analytics-state"></p>
-    <div><button type="button" value="denied">Elutasítom</button>
-    <button type="button" value="granted">Engedélyezem</button></div>`;
-  document.body.append(panel);
-
+  const disable = "ga-disable-" + id;
+  window[disable] = true;
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
-  gtag("consent", "default", {
-    analytics_storage: "denied", ad_storage: "denied",
-    ad_user_data: "denied", ad_personalization: "denied"
-  });
+
+  const adsDenied = {
+    ad_storage: "denied", ad_user_data: "denied", ad_personalization: "denied"
+  };
+  gtag("consent", "default", { ...adsDenied, analytics_storage: "denied" });
 
   let started = false;
-  let choice;
-  function apply(value) {
-    choice = value;
-    const allowed = choice === "granted";
-    window["ga-disable-" + id] = !allowed;
-    if (allowed && !started) {
-      started = true;
-      gtag("consent", "update", { analytics_storage: "granted" });
-      gtag("js", new Date());
-      gtag("config", id, { cookie_domain: "none", allow_google_signals: false,
-        allow_ad_personalization_signals: false });
-      const tag = document.createElement("script");
-      tag.async = true;
-      tag.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
-      document.head.append(tag);
-    } else if (!allowed && started) {
-      gtag("consent", "update", { analytics_storage: "denied" });
-      for (const cookie of document.cookie.split(";")) {
-        const name = cookie.trim().split("=")[0];
-        if (name === "_ga" || name === "_ga_5P18TLPN2D") {
-          document.cookie = name + "=; Max-Age=0; Path=/";
-        }
+  function syncConsent() {
+    const consent = window.getCkyConsent?.();
+    const allowed = consent?.isUserActionCompleted === true && consent.categories?.analytics === true;
+    window[disable] = !allowed;
+    if (!allowed) {
+      for (const name of ["_ga", "_ga_5P18TLPN2D"]) {
+        document.cookie = name + "=; Max-Age=0; Path=/";
       }
-      location.reload();
+      if (started) {
+        started = false;
+        gtag("consent", "update", { ...adsDenied, analytics_storage: "denied" });
+        location.reload();
+      }
+      return;
     }
-    panel.querySelector(".analytics-state").textContent = allowed
-      ? "Jelenlegi beállítás: engedélyezve."
-      : choice === "denied" ? "Jelenlegi beállítás: elutasítva." : "";
+    if (started) return;
+    started = true;
+    gtag("consent", "update", { ...adsDenied, analytics_storage: "granted" });
+    gtag("js", new Date());
+    gtag("config", id, {
+      cookie_domain: "none", allow_google_signals: false, allow_ad_personalization_signals: false
+    });
+    const tag = document.createElement("script");
+    tag.async = true;
+    tag.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+    document.head.append(tag);
   }
-  function readChoice() {
-    try { return localStorage.getItem(key); } catch { return null; }
+
+  // CookieYes renders the notice and the preference centre asynchronously.
+  const purpose = "Engedélyezed, hogy a Google Analytics 4 statisztikai sütikkel mérje, mely oldalakat látogatod meg és hogyan használod a weboldalt? A választásodat a lábléc Sütibeállítások gombjával bármikor módosíthatod.";
+  function updateNotice() {
+    for (const selector of [".cky-notice-des", ".cky-preference-content-wrapper"]) {
+      const container = document.querySelector(selector);
+      if (!container) continue;
+      const description = container.querySelector("p") || container;
+      if (description.textContent !== purpose) description.textContent = purpose;
+    }
   }
-  function restore() {
-    apply(readChoice());
-    if (choice === "granted" || choice === "denied") panel.close();
-    else if (!panel.open) panel.show();
-  }
-  settings.addEventListener("click", () => {
-    panel.close();
-    panel.showModal();
+  new MutationObserver(updateNotice).observe(document.body, { childList: true, subtree: true });
+  updateNotice();
+  document.addEventListener("cookieyes_consent_update", syncConsent);
+  document.addEventListener("cookieyes_banner_load", syncConsent);
+  window.addEventListener("pageshow", syncConsent);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) syncConsent();
   });
-  panel.addEventListener("click", event => {
-    const button = event.target.closest("button");
-    if (!button) return;
-    try { localStorage.setItem(key, button.value); } catch { /* Use the choice on this page. */ }
-    panel.close();
-    apply(button.value);
-    settings.focus({ preventScroll: true });
-  });
-  window.addEventListener("storage", event => {
-    if (event.key === key || event.key === null) restore();
-  });
-  window.addEventListener("pageshow", event => { if (event.persisted) restore(); });
-  restore();
+  syncConsent();
 })();
