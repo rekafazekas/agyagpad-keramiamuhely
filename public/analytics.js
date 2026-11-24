@@ -40,7 +40,7 @@
   }
 
   // CookieYes renders the notice and the preference centre asynchronously.
-  const purpose = "Engedélyezed, hogy a Google Analytics 4 statisztikai sütikkel mérje, mely oldalakat látogatod meg és hogyan használod a weboldalt? A választásodat a lábléc Sütibeállítások gombjával bármikor módosíthatod.";
+  const purpose = "Engedélyezed, hogy a Google Analytics 4 statisztikai sütikkel mérje, mely oldalakat látogatod meg és hogyan használod a weboldalt? A választásodat a CookieYes lebegő gombjával bármikor módosíthatod.";
   function updateNotice() {
     for (const selector of [".cky-notice-des", ".cky-preference-content-wrapper"]) {
       const container = document.querySelector(selector);
