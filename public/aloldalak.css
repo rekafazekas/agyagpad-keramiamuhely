@@ -146,3 +146,20 @@
 .studio-shop > h2 { grid-column: 1 / -1; }
 .studio-shop { row-gap: 1.5rem; }
 .subpage .studio-shop > figure { margin: 0; }
+
+#urlap .form-group [data-state="invalid"] { border-color: #923d30; }
+#urlap .form-group [data-state="valid"] { border-color: #45633d; }
+.field-feedback { display: block; margin-top: .3rem; line-height: 1.35; }
+.field-feedback:empty { display: none; }
+[data-state="invalid"] ~ .field-feedback { color: #813427; }
+[data-state="valid"] ~ .field-feedback { color: #36532f; }
+#urlap .form-group :focus-visible { outline: 2px solid var(--umber); outline-offset: 2px; }
+#contact-form button:disabled { background: var(--oxide); filter: grayscale(80%); cursor: not-allowed; }
+
+#contact-form .consent { display: grid; grid-template-columns: auto 1fr; align-items: baseline; column-gap: .6rem; }
+#contact-form .consent input { width: 1.1rem; height: 1.1rem; margin: 0; align-self: start; margin-top: .3em; accent-color: var(--oxide); }
+#contact-form .consent label { margin: 0; }
+#contact-form .consent .field-feedback { grid-column: 2; }
+
+#contact-form .form-group:has(:required:not(:disabled)) label::after { content: " *"; }
+#contact-form .required-note { font-size: .9em; margin-block: .5rem 1rem; }

@@ -33,7 +33,6 @@ function updateForm(preferredDate) {
   if (team) groupSize.removeAttribute("max");
   else groupSize.max = "6";
   const message = form.querySelector("#message");
-  message.required = voucher || topic.value === "keramia";
   document.querySelector("#name-label").textContent = team ? "Kapcsolattartó neve" : "Neved";
   document.querySelector("#size-label").textContent = team ? "Összesen hány fővel terveztek?" : "Hányan jöttök?";
   message.placeholder = voucher
@@ -48,16 +47,83 @@ function updateForm(preferredDate) {
 const requestedTopic = query.get("program") || query.get("tema");
 if (Array.from(topic.options).some(option => option.value === requestedTopic)) topic.value = requestedTopic;
 updateForm(query.get("idopont"));
-topic.addEventListener("change", () => updateForm());
-form.hidden = false;
-
 const submitButton = form.querySelector('button[type="submit"]');
-window.addEventListener("pageshow", () => { submitButton.disabled = false; });
+const controls = [...form.querySelectorAll(".form-group input, .form-group select, .form-group textarea")];
+const touched = new Set();
+const hints = new Map();
+let sending = false;
+for (const field of controls) {
+  const hint = document.createElement("small");
+  hint.id = field.id + "-feedback";
+  hint.className = "field-feedback";
+  field.parentElement.append(hint);
+  field.setAttribute("aria-describedby", hint.id);
+  hints.set(field, hint);
+}
+
+function fieldError(field) {
+  if (field.type === "checkbox") return field.checked ? "" : "A küldéshez fogadd el az adatkezelési tájékoztatót.";
+  const value = field.value.trim();
+  if (field.validity.badInput) return "Egész számot adj meg.";
+  if (!value) {
+    if (!field.required) return "";
+    if (field === topic) return "Válaszd ki, miben segíthetek.";
+    if (field === courseDate) return "Válassz egy meghirdetett időpontot.";
+    return "Töltsd ki ezt a mezőt.";
+  }
+  if (field.id === "contact-name" && !/^(?=.*\p{L})[\p{L}\p{M}\p{Pd} .'’ʼ·]+$/u.test(value)) {
+    return "Betűkkel add meg a neved. Szóközt, kötőjelet és aposztrófot is használhatsz.";
+  }
+  if (field.id === "email" && (field.validity.typeMismatch || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value))) {
+    return "Ilyen formában add meg az e-mail-címed: anna@example.com.";
+  }
+  if (field.id === "group-size" && !field.validity.valid) {
+    return field.max ? "Adj meg egy egész számot 1 és 6 között." : "Legalább 1 főt adj meg, egész számmal.";
+  }
+  if (field.id === "team-time" && !/[\p{L}\p{N}]/u.test(value)) return "Írd be a tervezett napot vagy időszakot.";
+  if (field.id === "message" && !/[\p{L}\p{N}]/u.test(value)) return "Írd le röviden a kérésedet.";
+  return "";
+}
+
+function validateForm() {
+  let invalidCount = 0;
+  for (const field of controls) {
+    const error = field.disabled ? "" : fieldError(field);
+    if (error) invalidCount++;
+    const filled = field.type === "checkbox" ? field.checked : Boolean(field.value.trim());
+    const show = !field.disabled && (filled || (touched.has(field) && Boolean(error)));
+    const state = show ? (error ? "invalid" : "valid") : "";
+    field.dataset.state = state;
+    field.setAttribute("aria-invalid", String(state === "invalid"));
+    hints.get(field).textContent = show ? (error || "✓ Rendben") : "";
+  }
+  submitButton.disabled = sending || invalidCount > 0;
+  submitButton.textContent = sending ? "Küldés folyamatban…" : "Üzenet küldése";
+  return invalidCount === 0;
+}
+
+function onFieldEdit(event) {
+  if (!hints.has(event.target)) return;
+  touched.add(event.target);
+  validateForm();
+}
+topic.addEventListener("change", () => updateForm());
+for (const event of ["input", "change", "focusout"]) form.addEventListener(event, onFieldEdit);
+window.addEventListener("pageshow", () => { sending = false; validateForm(); });
+form.noValidate = true;
+validateForm();
+form.hidden = false;
 
 form.addEventListener("submit", async event => {
   event.preventDefault();
-  if (submitButton.disabled) return;
-  submitButton.disabled = true;
+  if (sending) return;
+  controls.forEach(field => touched.add(field));
+  if (!validateForm()) {
+    form.querySelector('[aria-invalid="true"]').focus();
+    return;
+  }
+  sending = true;
+  validateForm();
   const fields = new URLSearchParams(new FormData(form));
   fields.set("form-name", form.name);
   let destination = "/sikertelen-kuldes.html";
