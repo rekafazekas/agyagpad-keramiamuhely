@@ -216,3 +216,6 @@ img { display: block; max-width: 100%; }
 }
 
 .korong-home .bar.has-menu .menu-toggle:is(:hover, :active) { background: var(--umber); color: var(--clay); }
+
+/* Keep fluid images proportional when HTML supplies intrinsic dimensions. */
+.logo img, .site-footer img, .hero-photo { height: auto; }

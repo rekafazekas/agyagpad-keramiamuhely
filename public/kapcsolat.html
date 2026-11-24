@@ -76,7 +76,9 @@
 </script>
   <link rel="icon" type="image/svg+xml" href="agyagpad-arculat/ikonok/favicon.svg">
   <link rel="apple-touch-icon" href="agyagpad-arculat/ikonok/apple-touch-icon.png">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400..700&amp;display=swap">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Jost:wght@400..700&amp;display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400..700&amp;display=swap"></noscript>
 <link rel="stylesheet" href="lablec.css">
 <link rel="stylesheet" href="megjelenes.css">
 <link rel="stylesheet" href="fooldal-korong.css">
@@ -87,16 +89,16 @@
 <body class="korong-home subpage contact-page">
 <a class="skip" href="#tartalom">Ugrás a tartalomhoz</a>
 <header><div class="bar wrap">
-<a class="logo" href="index.html" aria-label="Agyagpad Kerámiaműhely – főoldal"><picture><img src="agyagpad-arculat/logok/ketsoros-szines.svg" alt="Agyagpad Kerámiaműhely"></picture><picture class="logo-light" aria-hidden="true"><img src="agyagpad-arculat/logok/ketsoros-vilagos.svg" alt=""></picture></a>
+<a class="logo" href="index.html" aria-label="Agyagpad Kerámiaműhely – főoldal"><picture><img width="363" height="192" src="agyagpad-arculat/logok/ketsoros-szines.svg" alt="Agyagpad Kerámiaműhely"></picture><picture class="logo-light" aria-hidden="true"><img width="363" height="192" src="agyagpad-arculat/logok/ketsoros-vilagos.svg" alt=""></picture></a>
 <nav class="links" aria-label="Főmenü"><a href="tanfolyamok.html">Tanfolyamok</a><a href="muhely-es-alkoto.html">Műhely és alkotó</a><a href="kapcsolat.html" aria-current="page">Kapcsolat</a><a class="btn" href="kapcsolat.html#urlap">Jelentkezés</a></nav>
 </div></header>
 <main id="tartalom">
 <section class="frame section-grid" id="urlap">
   <div class="contact-intro"><h1>Jelentkezés és érdeklődés</h1>
-    <p>Ha kinéztél egy tanfolyamot, itt választhatsz időpontot. Akkor is írhatsz, ha a csapatoddal jönnél, utalványt adnál ajándékba vagy kérdeznél egy kerámiáról.</p></div><div><noscript><p>A bemutatóűrlap kipróbálásához engedélyezd a JavaScriptet.</p></noscript>
-    <form id="demo-form" hidden>
+    <p>Ha kinéztél egy tanfolyamot, itt választhatsz időpontot. Akkor is írhatsz, ha a csapatoddal jönnél, utalványt adnál ajándékba vagy kérdeznél egy kerámiáról.</p></div><div><noscript><p>Az űrlap használatához engedélyezd a JavaScriptet.</p></noscript>
+    <form id="contact-form" name="kapcsolat" method="POST" data-netlify="true" hidden>
       <div class="form-group"><label for="topic">Miben segíthetek?</label>
-        <select id="topic" required>
+        <select id="topic" name="topic" required>
           <option value="">Válassz témát</option>
           <option value="kostolo">1 alkalmas korongozó kóstoló</option>
           <option value="harom-alkalom">3 alkalmas korongozó tanfolyam</option>
@@ -106,14 +108,14 @@
           <option value="keramia">Kerámiák a műhelyboltban</option>
         </select>
       </div>
-      <div class="form-group"><label for="contact-name" id="name-label">Neved</label><input id="contact-name" autocomplete="name" placeholder="Például Kovács Anna" required></div>
-      <div class="form-group"><label for="email">E-mail-címed</label><input id="email" type="email" autocomplete="email" placeholder="anna@example.com" required></div>
-      <div class="form-group" hidden><label for="course-date">Időpont</label><select id="course-date" disabled required></select></div>
-      <div class="form-group" hidden><label for="team-time">Mikor jönnétek?</label><input id="team-time" placeholder="Például egy januári péntek délután" disabled required></div>
-      <div class="form-group" hidden><label for="group-size" id="size-label">Hányan jöttök?</label><input id="group-size" type="number" min="1" max="6" step="1" value="1" placeholder="Például 4" disabled required></div>
-      <div class="form-group"><label for="message">Üzeneted</label><textarea id="message" rows="4" placeholder="Írd meg, miben segíthetek!"></textarea></div>
-      <button type="submit" class="btn">Kipróbálom a beküldést</button>
-      <p role="status" id="result"></p>
+      <div class="form-group"><label for="contact-name" id="name-label">Neved</label><input id="contact-name" name="contact-name" autocomplete="name" placeholder="Például Kovács Anna" required></div>
+      <div class="form-group"><label for="email">E-mail-címed</label><input id="email" name="email" type="email" autocomplete="email" placeholder="anna@example.com" required></div>
+      <div class="form-group" hidden><label for="course-date">Időpont</label><select id="course-date" name="course-date" disabled required></select></div>
+      <div class="form-group" hidden><label for="team-time">Mikor jönnétek?</label><input id="team-time" name="team-time" placeholder="Például egy januári péntek délután" disabled required></div>
+      <div class="form-group" hidden><label for="group-size" id="size-label">Hányan jöttök?</label><input id="group-size" name="group-size" type="number" min="1" max="6" step="1" value="1" placeholder="Például 4" disabled required></div>
+      <div class="form-group"><label for="message">Üzeneted</label><textarea id="message" name="message" rows="4" placeholder="Írd meg, miben segíthetek!"></textarea></div>
+      <p>A műhely vizsgamunka. A beküldött adatokat a Netlify Forms tárolja. <a href="adatkezeles.html">Adatkezelési tájékoztató</a></p>
+      <button type="submit" class="btn">Üzenet küldése</button>
     </form></div></section>
 <section class="frame section-grid" id="gyakori-kerdesek"><h2>Gyakori kérdések</h2><div>
   <details><summary>Mikor lesz biztos a helyem?</summary><p>Az űrlapon válaszd ki a programot, a kezdést és a létszámot. E-mailben megírom, hogy van-e helyetek. A foglalás ezzel a visszaigazolással válik véglegessé.</p></details>
@@ -137,7 +139,7 @@
     <div class="footer-columns">
       <div class="footer-identity">
         <a class="footer-logo" href="index.html" aria-label="Agyagpad Kerámiaműhely – főoldal">
-          <img src="agyagpad-arculat/logok/ketsoros-vilagos.svg" alt="Agyagpad Kerámiaműhely" loading="lazy">
+          <img width="363" height="192" src="agyagpad-arculat/logok/ketsoros-vilagos.svg" alt="Agyagpad Kerámiaműhely" loading="lazy">
         </a>
         <p>Fehér Dóra keramikus</p>
       </div>

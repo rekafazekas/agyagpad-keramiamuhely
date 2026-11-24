@@ -10,10 +10,9 @@ const dates = new Map([
     ["2027-01-14", "2027. január 14., 21., 28. és február 4., 18:00–20:30"]
   ]]
 ]);
-const form = document.querySelector("#demo-form");
+const form = document.querySelector("#contact-form");
 const topic = document.querySelector("#topic");
 const courseDate = document.querySelector("#course-date");
-const feedback = document.querySelector("#result");
 const query = new URLSearchParams(location.search);
 
 function showField(selector, visible) {
@@ -44,16 +43,10 @@ function updateForm(preferredDate) {
   if (sessions.length > 1) courseDate.add(new Option("Válassz időpontot", ""));
   for (const [value, label] of sessions) courseDate.add(new Option(label, value));
   if (sessions.some(([date]) => date === preferredDate)) courseDate.value = preferredDate;
-  feedback.textContent = "";
 }
 
 const requestedTopic = query.get("program") || query.get("tema");
 if (Array.from(topic.options).some(option => option.value === requestedTopic)) topic.value = requestedTopic;
 updateForm(query.get("idopont"));
 topic.addEventListener("change", () => updateForm());
-form.addEventListener("input", () => { feedback.textContent = ""; });
-form.addEventListener("submit", event => {
-  event.preventDefault();
-  feedback.textContent = "A próbabeküldés sikerült. A megadott adatok a böngésződben maradtak.";
-});
 form.hidden = false;
