@@ -163,3 +163,14 @@
 
 #contact-form .form-group:has(:required:not(:disabled)) label::after { content: " *"; }
 #contact-form .required-note { font-size: .9em; margin-block: .5rem 1rem; }
+
+.privacy { max-width: 76ch; overflow-wrap: anywhere; }
+.privacy h2[id] { scroll-margin-top: 7rem; }
+.privacy-note { margin-block: 2rem; padding: 1rem 1.25rem; border-inline-start: 3px solid var(--oxide); background: var(--ash); }
+.privacy-note p { margin-block: .4rem 0; }
+.privacy mark { background: var(--ash); color: var(--umber); padding-inline: .25em; }
+.privacy-table { max-width: 100%; overflow-x: auto; }
+.privacy table { width: 100%; min-width: 34rem; border-collapse: collapse; text-align: start; }
+.privacy caption { text-align: start; font-weight: 600; padding-block: .75rem; }
+.privacy :is(td, th) { padding: .65em; border-bottom: 1px solid var(--ash); text-align: start; vertical-align: top; }
+.privacy thead { background: var(--ash); color: var(--umber); }
