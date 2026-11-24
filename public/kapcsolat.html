@@ -96,7 +96,7 @@
 <section class="frame section-grid" id="urlap">
   <div class="contact-intro"><h1>Jelentkezés és érdeklődés</h1>
     <p>Ha kinéztél egy tanfolyamot, itt választhatsz időpontot. Akkor is írhatsz, ha a csapatoddal jönnél, utalványt adnál ajándékba vagy kérdeznél egy kerámiáról.</p></div><div><noscript><p>Az űrlap használatához engedélyezd a JavaScriptet.</p></noscript>
-    <form id="contact-form" name="kapcsolat" method="POST" action="/sikeres-kuldes.html" data-netlify="true" hidden>
+    <form id="contact-form" name="kapcsolat" method="POST" action="/sikeres-kuldes.html" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <div class="form-group"><label for="topic">Miben segíthetek?</label>
         <select id="topic" name="topic" required>
           <option value="">Válassz témát</option>
@@ -119,6 +119,7 @@
         <label for="adatkezeles">Az <a href="adatkezeles.html" target="_blank" rel="noopener">adatkezelési tájékoztatót</a> elolvastam és elfogadom.</label>
       </div>
       <p class="required-note">A *-al jelölt mezők kitöltése kötelező.</p>
+      <div hidden><label>Hagyd üresen ezt a mezőt: <input type="text" name="bot-field" autocomplete="off" tabindex="-1"></label></div>
       <button type="submit" class="btn" disabled>Üzenet küldése</button>
     </form></div></section>
 <section class="frame section-grid" id="gyakori-kerdesek"><h2>Gyakori kérdések</h2><div>
