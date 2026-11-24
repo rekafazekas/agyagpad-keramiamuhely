@@ -44,11 +44,11 @@ body > header.scrolled .bar { min-height: var(--compact-height); }
 .bar nav a:not(.btn) { font-size: 15px; font-weight: 400; }
 .skip:focus { z-index: 21; }
 .menu-toggle { display: none; }
-.hero > div > *, .course-intro > *, .studio-intro > div > *, .contact-intro > *, .legal > h1, #urlap > div:nth-child(2), .courses-hero .choices { animation: arrive .9s both; }
+.hero-photo, .hero > div > *, .course-intro > *, .studio-intro > div > *, .contact-intro > *, .legal > h1, #urlap > div:nth-child(2), .courses-hero .choices { animation: arrive .9s both; }
 :is(.hero, .course-intro, .studio-intro, #urlap, .legal) h1 { animation-delay: .1s; }
 .hero p:not(.location), .course-intro p, .studio-intro p, .contact-intro p { animation-delay: .2s; }
 .hero .btn { animation-delay: .3s; }
-.hero-photo, .studio-intro figure img { animation: unveil 1.4s backwards; }
+.studio-intro figure img { animation: unveil 1.4s backwards; }
 main > section { transition: opacity .8s, transform 1s; }
 main > section.pending:not(:target):not(:focus-within) { opacity: 0; transform: translateY(22px); }
 @keyframes arrive {

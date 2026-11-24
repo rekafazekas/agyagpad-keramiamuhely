@@ -11,7 +11,7 @@
 .subpage .choices article { border: 1px solid var(--ash); }
 .subpage .choices article p { margin: .45em 0 0; }
 .subpage figure { margin: 1.25rem 0 0; }
-.subpage figure img { width: 100%; aspect-ratio: 1.6; object-fit: cover; border-radius: var(--image-radius); }
+.subpage figure img { width: 100%; height: auto; aspect-ratio: 1.6; object-fit: cover; border-radius: var(--image-radius); }
 .subpage figcaption { margin-top: .75rem; }
 .subpage li + li { margin-top: .5rem; }
 .subpage details { border-bottom: 1px solid var(--ash); padding-block: 1rem; }
@@ -47,7 +47,7 @@
 }
 .course-intro { color: var(--clay); }
 .course-intro p { max-width: 62ch; }
-.course-photo { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--image-radius); }
+.course-photo { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--image-radius); }
 .courses .section-grid:has(.course-photo) {
   grid-template-columns: repeat(2,minmax(0,1fr));
   grid-template-areas: "photo title" "photo copy";
